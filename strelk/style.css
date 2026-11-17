@@ -1,0 +1,110 @@
+body {
+font: 15px/1.5 Arial, sans-serif;
+background: #f4f6f9;
+color: #1f2d3d;
+}
+
+a { color: #2563eb; }
+
+/* Шапка */
+.topbar {
+display: flex; justify-content: space-between; align-items: center;
+height: 56px; padding: 0 20px;
+background: #1f2d3d; color: #fff;
+}
+.main-nav { display: flex; gap: 4px; }
+.main-nav a { color: #c9d6e3; padding: 6px 10px; border-radius: 4px; }
+.main-nav a:hover, .main-nav a.active { background: #2e4256; color: #fff; text-decoration: none; }
+.user-box { display: flex; gap: 10px; align-items: center; font-size: 13px; }
+.btn-logout { background: #ef4444; color: #fff; padding: 4px 10px; border-radius: 4px; }
+
+/* Контейнер */
+.container { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+h1 { font-size: 22px; margin-bottom: 16px; }
+h2 { font-size: 17px; margin-bottom: 12px; }
+
+/* Карточка */
+.card { background: #fff; border-radius: 8px; padding: 20px; }
+
+/* Кнопки */
+.btn {
+display: inline-block; padding: 8px 14px; border: none; border-radius: 5px;
+font: inherit; cursor: pointer;
+}
+.btn-primary { background: #2563eb; color: #fff; }
+.btn-secondary { background: #e2e8f0; color: #1f2d3d; }
+.btn-danger { background: #ef4444; color: #fff; }
+.btn-success { background: #10b981; color: #fff; }
+.btn-sm { padding: 4px 9px; font-size: 13px; }
+
+/* Формы */
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; margin-bottom: 5px; font-weight: 600; }
+.req { color: #ef4444; }
+.form-row input, .form-row select, .form-row textarea {
+width: 100%; padding: 8px 10px;
+border: 1px solid #cbd5e1; border-radius: 5px;
+font: inherit;
+}
+.form-row textarea { min-height: 80px; }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+outline: none; border-color: #2563eb;
+}
+
+/* Валидация */
+.form-row input:invalid:not(:placeholder-shown),
+.form-row select:invalid:not(:placeholder-shown),
+.form-row textarea:invalid:not(:placeholder-shown) {
+border-color: #ef4444; background: #fef2f2;
+}
+.form-row :invalid:not(:placeholder-shown) + .error-text { display: block; }
+.error-text { display: none; color: #ef4444; font-size: 12px; margin-top: 4px; }
+.form-hint { color: #64748b; font-size: 12px; margin-top: 4px; }
+
+/* Таблицы */
+table.data { width: 100%; border-collapse: collapse; background: #fff; }
+table.data th, table.data td { padding: 10px; text-align: left; border-bottom: 1px solid #eef2f7; }
+table.data th { background: #f8fafc; font-size: 12px; }
+.thumb { width: 64px; height: 38px; object-fit: cover; border-radius: 4px; }
+tr.trashed td { background: #fff7ed; color: #92400e; }
+
+/* Бейджи */
+.badge { padding: 2px 8px; border-radius: 10px; font-size: 11px; }
+.badge-danger { background: #fee2e2; color: #b91c1c; }
+.badge-success { background: #d1fae5; color: #065f46; }
+.badge-warning { background: #fef3c7; color: #92400e; }
+
+/* Фильтры */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.filters select, .filters input { padding: 7px 10px; border: 1px solid #cbd5e1; border-radius: 5px; }
+
+/* Пагинация */
+.pagination { display: flex; gap: 5px; justify-content: center; margin-top: 16px; }
+.pagination a, .pagination span { padding: 6px 11px; border: 1px solid #e2e8f0; border-radius: 5px; background: #fff; }
+.pagination .current { background: #2563eb; color: #fff; }
+.pagination .disabled { opacity: .4; pointer-events: none; }
+
+/* Алерты */
+.alert { padding: 10px 14px; border-radius: 6px; margin-bottom: 14px; }
+.alert-danger { background: #fee2e2; color: #b91c1c; }
+.alert-success { background: #d1fae5; color: #065f46; }
+
+/* Логин */
+.login-wrap {
+min-height: 100vh; display: flex; align-items: center; justify-content: center;
+background: #1f2d3d;
+}
+.login-card { background: #fff; padding: 30px; border-radius: 12px; width: 360px; }
+.login-card h1 { text-align: center; margin-bottom: 20px; }
+.login-card .btn { width: 100%; }
+
+/* Сетка фото */
+.image-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.image-item { width: 150px; height: 95px; border: 2px solid #e2e8f0; border-radius: 6px; overflow: hidden; }
+.image-item.default { border-color: #2563eb; }
+.image-item img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Повторители */
+.repeater-item { display: grid; gap: 8px; padding: 12px; margin-bottom: 8px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; }
+.repeater-item.ingredients { grid-template-columns: 2fr 1fr 1fr auto; align-items: end; }
+.repeater-item .form-row { margin-bottom: 0; }

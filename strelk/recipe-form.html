@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Рецепт — Кухни мира</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+<div class="brand">🍲 Кухни мира <span>Админ-панель</span></div>
+<nav class="main-nav">
+<a href="recipes.html" class="active">Рецепты</a>
+<a href="categories.html">Категории</a>
+<a href="ingredients.html">Ингредиенты</a>
+<a href="steps.html">Шаги</a>
+<a href="orders.html">Заказы</a>
+</nav>
+<div class="user-box">
+<span>admin@champ2026</span>
+<a href="login.html" class="btn-logout">Выйти</a>
+</div>
+</header>
+
+<main class="container">
+<h1>Редактирование рецепта «Борщ»</h1>
+
+<form class="card" method="post" enctype="multipart/form-data" novalidate>
+
+<!-- Название -->
+<div class="form-row">
+<label for="title">Название рецепта <span class="req">*</span></label>
+<input type="text" id="title" name="title" required maxlength="20"
+value="Борщ" placeholder="До 20 символов">
+<div class="error-text">Название обязательно, не более 20 символов</div>
+</div>
+
+<!-- Описание -->
+<div class="form-row">
+<label for="description">Описание <span class="req">*</span></label>
+<textarea id="description" name="description" required
+minlength="50" maxlength="250"
+placeholder="От 50 до 250 символов">Классический борщ с говядиной, свёклой и капустой. Готовится на наваристом бульоне.</textarea>
+<div class="error-text">От 50 до 250 символов</div>
+<div class="form-hint">Минимум 50, максимум 250 символов</div>
+</div>
+
+<!-- Время -->
+<div class="form-row">
+<label for="cooking_time">Время приготовления (мин) <span class="req">*</span></label>
+<input type="number" id="cooking_time" name="cooking_time" required
+min="1" step="1" value="120">
+<div class="error-text">Укажите число больше 0</div>
+</div>
+
+<!-- Сложность -->
+<div class="form-row">
+<label for="difficulty">Сложность <span class="req">*</span></label>
+<select id="difficulty" name="difficulty" required>
+<option value="">— выберите —</option>
+<option value="легко">легко</option>
+<option value="средне" selected>средне</option>
+<option value="сложно">сложно</option>
+</select>
+<div class="error-text">Выберите сложность</div>
+</div>
+
+<!-- Категория -->
+<div class="form-row">
+<label for="category_id">Категория <span class="req">*</span></label>
+<select id="category_id" name="category_id" required>
+<option value="">— выберите —</option>
+<option value="1" selected>Первые блюда</option>
+<option value="2">Салаты</option>
+<option value="3">Десерты</option>
+</select>
+<div class="error-text">Выберите категорию</div>
+</div>
+
+<!-- Цена -->
+<div class="form-row">
+<label for="price">Цена (₽) <span class="req">*</span></label>
+<input type="number" id="price" name="price" required
+min="100.01" step="0.01" value="0.00">
+<div class="error-text">Цена должна быть больше 100</div>
+<div class="form-hint">0 — рецепт бесплатный</div>
+</div>
+
+<!-- Фотографии -->
+<div class="form-row">
+<label>Фотографии рецепта <span class="req">*</span></label>
+<input type="file" name="images[]" accept=".jpg,.jpeg,.png,.webp"
+multiple required>
+<div class="error-text">Загрузите от 1 до 5 изображений (jpg, jpeg, png, webp)</div>
+<div class="form-hint">Минимум 1, максимум 5. Размер каждого ≤ 2 Мб, минимум 500×500 px.</div>
+
+<div class="image-grid">
+<div class="image-item default">
+<img src="img/placeholder.jpg" alt="Фото 1">
+<span class="default-mark">По умолчанию</span>
+<div class="img-actions">
+<label><input type="radio" name="default_image_id" value="1" checked hidden>★</label>
+<button type="button">✕</button>
+</div>
+</div>
+<div class="image-item">
+<img src="img/placeholder.jpg" alt="Фото 2">
+<div class="img-actions">
+<label><input type="radio" name="default_image_id" value="2" hidden>★</label>
+<button type="button">✕</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Ингредиенты -->
+<h2>Ингредиенты</h2>
+<div class="repeater-item ingredients">
+<div class="form-row">
+<label>Ингредиент</label>
+<select name="ingredients[0][id]" required>
+<option value="1">Свекла</option>
+<option value="2">Капуста</option>
+<option value="3">Говядина</option>
+</select>
+</div>
+<div class="form-row">
+<label>Кол-во</label>
+<input type="number" name="ingredients[0][quantity]" required min="0" step="0.01" value="2">
+</div>
+<div class="form-row">
+<label>Ед. изм.</label>
+<select name="ingredients[0][unit]" required>
+<option value="шт">шт</option>
+<option value="л">л</option>
+<option value="кг">кг</option>
+<option value="мг">мг</option>
+<option value="ст.л.">ст.л.</option>
+</select>
+</div>
+<button type="button" class="btn btn-danger btn-sm">✕</button>
+</div>
+<button type="button" class="btn btn-secondary btn-sm">+ Добавить ингредиент</button>
+
+<!-- Шаги -->
+<h2 style="margin-top:24px;">Шаги выполнения</h2>
+<div class="repeater-item steps">
+<div class="form-row">
+<label>Название шага <span class="req">*</span></label>
+<input type="text" name="steps[0][title]" required maxlength="40" value="Подготовка">
+<div class="error-text">Обязательно, до 40 символов</div>
+</div>
+<div class="form-row">
+<label>Описание шага <span class="req">*</span></label>
+<textarea name="steps[0][description]" required maxlength="255">Сварить бульон</textarea>
+<div class="error-text">Обязательно, до 255 символов</div>
+</div>
+<div class="form-row">
+<label>Фотография шага <span class="req">*</span></label>
+<input type="file" name="steps[0][image]" accept=".jpg,.jpeg,.png,.webp">
+<div class="form-hint">≤ 2 Мб, jpg / jpeg / png / webp</div>
+</div>
+<button type="button" class="btn btn-danger btn-sm" style="justify-self:start;">✕</button>
+</div>
+<button type="button" class="btn btn-secondary btn-sm">+ Добавить шаг</button>
+
+<div style="margin-top:24px; display:flex; gap:10px;">
+<button type="submit" class="btn btn-primary">Сохранить</button>
+<a href="recipes.html" class="btn btn-secondary">Отмена</a>
+</div>
+</form>
+</main>
+</body>
+</html>
